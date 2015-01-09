@@ -1,0 +1,86 @@
+Release Notes                                                    10.04.2014
+
+activeTAPI.COM-DyNav_v2013_Setup.msi
+  installs activeTAPI.COM-DyNav v2013
+
+The NAV objects are based on NAV 2013 with RollUp 1 and were developed with
+Build 34587.
+
+If you are working with a newer Rollup, a newer Version of the NAV Objects is
+avaliable based on Rollup 12 (Build 36207). 
+The .fob and .txt-files for Rollup 12 habe -R12- in their name:
+- AT-v2013-R12-modified-standard-objects.fob
+- AT-v2013-R12-modified-standard-objects.txt
+- AT-v2013-R12-new-objects.fob
+- AT-v2013-R12-new-objects.txt
+
+The activeTAPI-Installation-Program is the same for all the Rollups and it is
+included in the Download of activeTAPI-v2013.
+
+Install activeTAPI, import the new and changed standard objects to a
+Chronus database. In a second step you import the objects for Rollup 12.
+And you compile all objects with version filter *AT*.
+
+
+
+The follwing changes were made in Navision:
+  Version-Code: AT2013
+
+1) The Classic Client died
+
+Bye, bye, dear old friend, we loved you ...
+... and we begin to love RTC with NAV 2013 
+
+So everything called FORM was changed to PAGE.
+Also "IF ISSERVICETIER THEN" was deleted.
+
+Remember before you start:
+- Register the Timer-AddIn (see separat documentation 
+  "Getting started" (chapter 3.1).
+- To start the timer-page with every call of the RTC, in the properties of 
+  the RTC-Desktop Icon please add after the programm call 
+  ... \Microsoft.Dynamics.Nav.Client.exe" "DynamicsNAV:////RunPage?Page=56785"
+  This will start the RTC and the Page with timer. You can do that for every user. 
+  If the user is not working with activeTAPI, the Timer-page will close 
+  directly after opening.
+- It is not possible, to change the code behind the Telephone-Icons (behind
+  the Phone No.-fields). Therefore we had to use a trick: We used the 
+  OnAssistEdit-Trigger.
+  Thats why you don't see the Telephone-Symbol, but 3 points. If you click 
+  on the 3 points, NAV dials.
+- You find all the Telephony menu options in "Departments".
+
+One hint:
+
+In the List Pages (Customer, Vendor, Contact) there is a new Page Action "Dial". 
+It dials the main number ("Phone No.") of the actual line.
+It is promoted and we used Image Calls.
+
+
+2) Older Versions of NAV
+
+In the future we will have several versions of activeTAPI:
+- activeTAPI-DyNAV v2011.3   for all NAV versions from 2009 SP2 with CC and RTC
+- activeTAPI-DyNAV v2013     for all NAV version 2013
+- and very soon a version for NAV 2013 R2
+
+
+3) Known Issues
+
+- Pages do not have a MinimizeOnOpen-Property. Therefore Page 56785 "Page with Timer" 
+is allways opened and must be minimized manually (not closed).
+
+- Since NAV version 2013 there is a problem with "Send to Excel". If you start
+a single instant codeunit with an automation object inside (and activeTAPI does),
+"send to Excel" hangs. Up to Rollup 12 this bug was not yet corrected by Microsoft
+(in NAV 2012 R2 it is corrected). But we are still talking with the Microsoft 
+Support about this issue. May be in one of the next Rollups it will be corrected ...
+
+
+4) Feed back
+
+We hope you enjoy the new version. Don't hesitate to give us hints, proposals, ...
+
+
+Best regards
+M. Gertz
