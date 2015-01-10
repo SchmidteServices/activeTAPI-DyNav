@@ -1,0 +1,116 @@
+Release Notes                                                    11.10.2011
+
+activeTAPI.COM-DyNav_v2011.3_Setup.msi
+  installs activeTAPI.COM-DyNav v2011.3
+
+
+The NAV objects are based on NAV 2009 R2 and were developed with
+Build 32146.
+
+
+The follwing changes were made in Navision:
+  Version-Code: AT2011 and AT2011.3
+
+
+1) Role tailored Client (RTC)
+
+The biggest change in Version 2011 is the integration of activeTAPI into the 
+RTC. This was a real challenge.
+
+What you see first, is that pages are now available for activeTAPI.
+
+But: The RTC is not able to receive local events. That's why we had to do a lot 
+of programming outside of NAV. Now the RTC is able to receive local telefonie 
+events !
+The trick or the method is a page (56785 "Page with timer"), that runs in the 
+background of the RTC. This page receives the events through an Timmer-AddIn.
+If you want to change the timer time, you can do that in Page 56785
+in the OnOpenPage-Trigger. Actually you find there:
+  timer := '30';
+The unit is 1/10 sec. So if you want the timer to act every 2 seconds,
+change the line to 
+  timer := '20';
+Try to find a good compromise between quick reaction (shorter time) and
+system load (longer time).
+
+At first you have to register the Timer-AddIn (see separat documentation 
+"Getting started" (chapter 3.1).
+
+To start the timer-page with every call of the RTC, in the properties of 
+the RTC-Desktop Icon please add after the programm call 
+... \Microsoft.Dynamics.Nav.Client.exe" "DynamicsNAV:////RunPage?Page=56785"
+This will start the RTC and the Page with timer. You can do that for every user. 
+If the user is not working with activeTAPI, the Timer-page will close 
+directly after opening.
+
+As we are working with two different clients, we had to rearrange some code,
+so it can be used by both clients.
+
+The telephonie-Events are now handled in Codeunit 56780 TAPI functions.
+the handling is called from Codeunit 56781 TAPI Main for the Classic 
+Client and from Page 56785 "Page with Timer" for the RTC.
+
+We used the oppotunity, to delete old Code (f.e. for NAV 2.60). 
+
+It is not possible, to change the code behind the Telephone-Icons (behind
+the Phone No.-fields). Therefore we had to use a trick: We used the 
+OnAssistEdit-Trigger.
+Thats why you don't see the Telephone-Symbol, but 3 points. If you click 
+on the 3 points, NAV dials.
+
+In the RTC, the Setup of the TAPI-Users is the same as in the past. 
+You find all the Telephony menu options in "Departments".
+
+Some hints:
+
+a) In the List Pages (Customer, Vendor, Contact) there is a new Page Action "Dial". 
+It dials the main number ("Phone No.") of the actual line.
+If you want to dial another number, you must call the page and then click on the
+3 points (Assist Edit) behind the desired number.
+
+b) In the Pages "End of Call in" and "End of Call out" you have the possibilty, 
+to input informations for the actual call (reference, note).
+If you close the page by clicking the Close-Button, this information will not be 
+written to the TAPI Log. If you want to write the information to the TAPI Log,
+please choose Action "Done".
+
+c) If you receive telephony events, you should NEVER have both clients open:
+Because both clients receive the same event with the same GUID and if they try 
+to write to TAPI log, you will get an error message: Record already exists.
+
+
+2) Tracing
+
+Since the beginning of activeTAPI, you had the possibility to trace actions 
+in Navision to a log-file called "Navi_log.txt" in the LogFiles directory 
+of activeTAPI.
+Now we changed the tool to AppTrace. You find some examples for tracing in
+Codeunits 1, 56780, 56781 and 56783.
+
+
+3) Log internal calls
+
+In the TAPI Setup you have to the possibility to decide, if you want to
+"Log internal calls" or not.
+
+
+4) Older Versions of NAV
+
+In the future we will have two versions of activeTAPI:
+- activeTAPI-DyNAV v2009   for all NAV versions up to 2009 R2 without RTC
+- activeTAPI-DyNAV v2011   for all NAV versions from 2009 SP1 with CC and RTC
+
+
+5) Known Issues
+
+Pages do not have a MinimizeOnOpen-Property. Therefore Page 56785 "Page with Timer" 
+is allways opened and must be minimized manually.
+
+
+6) Feed back
+
+We hope you enjoy the new version. Don't hesitate to give us hints, proposals, ...
+
+
+Best regards
+M. Gertz

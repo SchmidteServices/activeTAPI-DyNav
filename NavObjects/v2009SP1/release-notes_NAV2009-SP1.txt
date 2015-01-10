@@ -1,0 +1,156 @@
+Release Notes                                                    06.11.2009
+
+activeTAPI 4.20 (unchanged) for 
+  Microsoft Dynamics NAV 2009, Service Pack 1
+  Date: 06.11.2009
+  Time: 10:00:00  
+
+The follwing changes were made in Navision:
+  Version: AT2009
+
+
+0) Navision License
+
+You have to add Codeunit 56782 to the Navision License
+for the Single-Instant Codeunit "TAPI FUnctions SI"
+(see point 2).
+
+
+1) TAPI Logs
+
+In the TAPI Logs in Navision everybody can see all logged calls.
+Some customers did not like that. 
+A new option was introduced: "See TAPI Logfile completely" in 
+"User Setup" (Table 91 and Form 119).
+Form 56784 "TAPI Logs" was modified: 
+- The option is not active: The user sees only his own calls.
+- The option is active: The user sees his own calls, but he can 
+  click on "Show all".
+A new key "User,Entry No." was introduced to Table 56780 
+"TAPI Logfile" and to Form 56784 "TAPI Logs".
+
+In the Form 56784 "TAPI Logs" you find a new button: Dial.
+So you are able to make a phone call directly out of the Log.
+For outgoing calls, the "Called ID" will be called, for incoming
+calls the "Caller ID" will be called.
+
+
+2) Formatting of Phone and / or Fax No.'s
+
+This tasks were performed in the Codeunit 56780 "TAPI Functions". 
+Each time when a number was formatted, a new Automation object had
+to be created and to be initialized. This could last some seconds.
+Therefore the formatting function (ConvToCanonic) was transferred 
+from Codeunit 56780 to a new Single-Instant-Codeunit 56782 
+"TAPI Functions SI". So formatting is directly available.
+The Codeunit 56782 is allways started in CU 1 ApplicationManagement
+(LogInStart).
+The change from Codeunit 56780 to 56782 was introduced in Table 
+18 "Customer", Table 23 "Vendor", Table 5050 "Contact" and Codeunit
+56780 "TAPI Functions".
+
+By the way: If you want to format ALL Phone, 2. Phone, Fax No.'s, etc.
+in Navision, here is a list of all tables with such numbers:
+
+ID          Name                            Caption DEU
+
+13          Salesperson/Purchaser           Verkäufer/Einkäufer
+14          Location                        Lagerort
+79          Company Information             Firmendaten
+222         Ship-to Address                 Lief. an Adresse
+224         Order Address                   Bestelladresse
+270         Bank Account                    Bankkonto
+287         Customer Bank Account           Debitor Bankkonto
+288         Vendor Bank Account             Kreditor Bankkonto
+5051        Contact Alt. Address            Alternative Kontaktadresse
+5200        Employee                        Mitarbeiter
+5201        Alternative Address             Alternative Adresse
+5205        Employee Relative               Mitarbeiter Verwandte
+5209        Union                           Gewerkschaft
+5616        Maintenance Registration        Wartungsregistrierung
+5714        Responsibility Center           Zuständigkeitseinheit
+5900        Service Header                  Servicekopf
+5940        Service Item                    Serviceartikel
+5965        Service Contract Header         Servicevertragskopf
+5970        Filed Service Contract Header   Archiv. Servicevertragskopf
+5990        Service Shipment Header         Servicelieferungskopf
+5992        Service Invoice Header          Servicerechnungskopf
+5994        Service Cr.Memo Header          Servicegutschriftskopf
+11011       Sales VAT Advance Notification  Umsatzsteuervoranmeldung
+99008504    Inbound Product Catalog Hdr.    Eingeh. Produktkatalogskopf
+99008519    BizTalk Technical Notification  BizTalk tech. Benachrichtigung
+99008534    Outbound Product Catalog Hdr.   Ausgeh. Produktkatalogskopf
+
+
+3) Check for double numbers
+
+If you input a phone no., a check is performed: Does this number allready 
+exists in the phone index. If yes, you get a warning message.
+Some users did not want this kind of check.
+Therefore there is the new field "Check of double numbers" with the options
+"allways,only unblocked numbers,never" in the TAPI Setup (Table 56782,
+Form 56782).
+allways:                Check against all existing numbers in the phone 
+                        index - as it is now. 
+only unblocked number:  If customers and vendor are blocked (with Option) all,
+                        their numbers are not part of the check.
+never:                  No check for double numbers is performed.
+The information of the field "blocked" has to be transferred to the
+Phone-Index. 
+Changes in:
+Table 18 "Customer":             Modify PhoneIndex, if Blocked is changed
+Table 23 "Vendor":               Modify PhoneIndex, if Blocked is changed
+Table 56781 "Phone Index":       New Field "Blocked"; Field "Blocked" added to 
+                                 all Index-Keys
+Report 56780 "Fill Phone Index": Check double Numbers options, fill new field "Blocked"
+CU 56780 "TAPI Functions":       Field "Blocked" in Phone Index (Customer / Vendor)
+                                 Check for double numbers defined in Setup
+
+
+4) Interaction Log Entry (Aktivitätsprotokollposten)
+
+Some user use the Interaction Log and they would like to use it together 
+with activeTAPI.
+So we introduced the new Field "Create Interaction Log Entry" in "TAPI Setup"
+(Table 56782 and Form 56782).
+If this option is activated, you will find the button "Create Interact. Log"
+(Akt.-Protokoll erst.) on Form 56789 "End of Call out", if a contact
+was found in NAV for the called Phone No.
+If you click button "Create Interact. Log", the wizzard of Form 5147 
+"Make Phone Call" is opened on page 2.
+All available informations of the finished call are transferred to the 
+wizzard and additional information (Campaign, etc.) can be added.
+Changes in: 
+CU 56780 "TAPI Functions":       Option Create Interaction Log Entry
+
+
+5) Call back
+
+In Form 56789 "End of call out" you find allready the button "Dial again",
+if the call was not connected.
+We added a button "Call back" to the Form 56788 "End of call in". It is
+activated, if the caller was found in Navision.
+
+
+6) Action for end of call
+
+Some users do not want to see a form "End of call .." at the end of a call.
+Therefore we added two new field to "TAPI User" (Table 56783 and Form 56783): 
+- Action for end of incom. call     Options: Reference/Note,none
+- Action for end of outgo. call     Options: Reference/Note,none
+The option "Reference/Note" shows the forms 56788 "End of Call in" or 56789 
+"End of Call out" as it does now.
+The option "none" shows nothing an the end of an incoming or outgoing call.
+Changes in:
+CU 56781 "TAPI Main": Options from TAPI User for Action for end of incom. 
+                      call, Action for end of outgo. call
+
+7) Tracing
+
+Since the beginning of activeTAPI, you have the possibility to trace actions 
+in Navision to a log-file called "Navi_log.txt" in the LogFiles directory 
+of activeTAPI.
+To show how ist works, we have added 3 blocks of creating trace-informations
+(outcommented) in CU 56781 "TAPI Main".
+
+M.G.
