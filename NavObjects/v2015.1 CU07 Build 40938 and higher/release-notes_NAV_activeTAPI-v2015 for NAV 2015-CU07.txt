@@ -1,0 +1,74 @@
+Release Notes                                                    07.06.2015
+
+The Setup-Program for activeTAPI v2015 is still in development.
+
+Use the attached activeTAPI.COM-DyNav_v2013_Setup.msi, to install activeTAPI v2013.
+
+The activeTAPI.RTC TimerControl.dll will be installed into
+C:\Program Files (x86)\Microsoft Dynamics NAV\70\RoleTailored Client\Add-ins\activeTAPI.
+
+You have to copy it into the path
+C:\Program Files (x86)\Microsoft Dynamics NAV\80\RoleTailored Client\Add-ins\activeTAPI
+for NAV 2015.
+
+Inside of NAV 2015, you use the AT-v2015-objects.
+
+The NAV objects are based on NAV 2015 (Cummulative Update 7) and were developed 
+with Build 40938.
+
+
+1) The follwing changes were made in Navision:
+The Version-Code is AT2015.
+
+a) There were some troubles with NAV 2013 (R2) and the Excel-Addin.
+To avoid this, we added a .NET-Check in Codeunit 40 (thanks to Cajus).
+
+b) In Report 56780 "Fill Phone Index" there was no Request Page. It was added now.
+
+c) In Page 56784 "TAPI Logs" there is a page action "Dial" (Anrufen). The Code was 
+changed. Now always the Remode ID is dialed (if not empty).
+
+d) In the Table 56782 TAPI Setup there is new field "Runs in Developer Mode".
+This field can only be changed directly in the table (developers should know 
+how to do this ...).
+If it is activated, activeTAPI automation object "TAPI Functions SI" and Startpage 56785
+are not started in Codeunit 40, LoginStart.
+So Developers, that have not installed activeTAPI, will not get automation
+errors anymore. But take care: You should also deactivate "Format Phone Numbers"
+and "Format Fax Numbers" in the TAPI SetUp. Otherwise you will get automation
+errors, if you change any Phone or Fax No.
+AND: Don't forget, to deactivate "Runs in Developer Mode" at the end of your work.
+
+e) In former version of activeTAPI, the event-receiving Startpage (Page 56785) was 
+started by a Page.RUN command in the properties of the NAV RTC-Icon. This is no more
+necessary. It is started now in Codeunit 40 in function LoginStart. This solves
+problems while changing the Company.
+
+f) In the Standard, Page 56785 "Page with Timer" is not visible, because it has 
+PageType ConfirmationDialog (thanks to Peter). This did not work with Build 37874 (RTM),
+but it works since Build 39368 (Cummulative Update 3). Iy you want so see the Page, for 
+example in development, change the PageType to Card.
+
+g) If the activeTAPI-objects were imported into an database, but activeTAPI was not
+installed, the RT-Client crashes while starting Codeunit 56782 "TAPI Functions SI".
+To avoid this, a new Veriable ATPhoneRunning was introduced in CU 56782 (thanks to Heiko).
+
+h) In the Codeunits 5055, 5056 and 5057 modify of "Phone No." is only called, if  
+Phone No. changed (thanks to Peter), Version Code AT2015.1.
+ 
+
+2) Older Versions of NAV
+
+In the future we will have three different versions of activeTAPI:
+- activeTAPI-DyNAV v2011.3   for all NAV versions from 2009 SP2 with CC and RTC
+- activeTAPI-DyNAV v2013     for all NAV version 2013 and R2
+- activeTAPI-DyNAV v2015     for NAV version 2015
+
+
+3) Feed back
+
+We hope you enjoy the new version. Don't hesitate to give us hints, proposals, ...
+
+
+Best regards
+M. Gertz
