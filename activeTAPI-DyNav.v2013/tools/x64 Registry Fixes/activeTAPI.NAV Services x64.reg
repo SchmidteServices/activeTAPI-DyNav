@@ -1,0 +1,27 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\ActiveTAPI.NAV.Services.ComTrace]
+@="ActiveTAPI.NAV.Services.ComTrace"
+
+[HKEY_CLASSES_ROOT\ActiveTAPI.NAV.Services.ComTrace\CLSID]
+@="{1B61767C-91A3-4632-9E92-A8C29C7DA936}"
+
+[HKEY_CLASSES_ROOT\CLSID\{1B61767C-91A3-4632-9E92-A8C29C7DA936}]
+@="ActiveTAPI.NAV.Services.ComTrace"
+
+[HKEY_CLASSES_ROOT\CLSID\{1B61767C-91A3-4632-9E92-A8C29C7DA936}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="ActiveTAPI.NAV.Services.ComTrace"
+"Assembly"="activeTAPI.NAV Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{1B61767C-91A3-4632-9E92-A8C29C7DA936}\InprocServer32\1.0.0.0]
+"Class"="ActiveTAPI.NAV.Services.ComTrace"
+"Assembly"="activeTAPI.NAV Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{1B61767C-91A3-4632-9E92-A8C29C7DA936}\ProgId]
+@="ActiveTAPI.NAV.Services.ComTrace"
+
+[HKEY_CLASSES_ROOT\CLSID\{1B61767C-91A3-4632-9E92-A8C29C7DA936}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
