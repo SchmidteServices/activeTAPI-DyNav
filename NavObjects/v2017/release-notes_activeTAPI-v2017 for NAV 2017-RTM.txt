@@ -1,0 +1,39 @@
+Release Notes                                                    14.01.2017
+
+Use the attached activeTAPI.COM-DyNav_v2017_Setup.msi, to install activeTAPI v2017.
+
+activeTAPI is a 32-bit program. But it runs with the 32-bit and the 64-bit version of NAV CLient
+(because even the 32-bit-version of the NAV client is a 64-bit program. Strange ?!).
+
+The NAV objects are based on NAV 2017 (RTM, 13682).
+
+You can use the activeTAPI-Objects v2017 ONLY for NAV 2017 (may be with some changes for NAV 2016),
+but not for older versions. The reason is, that we introduced events into activeTAPI. 
+Therefore the structure changed at many places.
+
+The needed objects in the license have also changed. You need    
+7 Tables     (56780 - 56786)
+3 Reports    (56780 - 56782)
+4 Codeunits  (56780 - 56783)
+13 Pages     (56780 - 56792)
+
+The version code in NAV for activeTAPI-v2017 ist AT2017, all AT objects are dated on 14.01.2017.
+
+If you need activeTAPI for older versions of NAV, please contact us.
+
+The changes in activeTAPI-v2017 are:
+- activeTAPI now runs with the 64-bit and 32-bit NAV Client
+- Introducing NAV-events, to minimize the changes in the NAV Standard Objects
+- Create Setup Data as Action on the TAPI Setup Card
+- Object Numver of the Telephonie Menu was changed from 1055 to 1054 (1055 is OPPlus). Iy you need
+  another object number, use the txt-Object of the Menu, to change the number
+- Additional tests for correct installation:
+  * If you activate "Use activeTAPI" in the User Setup, it is tested, if the TAPISetup exists and
+    if at minimum one TAPI Line exists in NAV
+- Complete update of the documentation
+- and some minor corrections (errors in Captions, ...)
+
+We hope you enjoy the new version. Don't hesitate to give us hints and proposals.
+
+Best regards
+M. Gertz
