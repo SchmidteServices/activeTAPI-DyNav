@@ -2,7 +2,12 @@
 
 Welcome to activeTAPI on GitHub. 
 
-In our `[WIKI]` you will find the latest tips and information and in the `CODE` section you will find the latest binaries and NAV Objects.
+Here, in the `CODE` section you will find the latest activeTAPI binaries & tools, as well as the NAV Objects. 
+
+* NAV-Objects
+* activeTAPI-DyNav
+
+In our `[WIKI]` section you will find the latest tips and information.
 
 ![readme01.png](readme01.png)
 
@@ -10,7 +15,7 @@ In our `[WIKI]` you will find the latest tips and information and in the `CODE` 
 
 The activeTAPI-Components are the **binary part and they must be installed on any machine that will connected with Windows-TAPI (CTI)**. The activeTAPI-Components are the bridge between Microsoft Dynamics NAV and Windows-TAPI.
 
-You can download the [activeTAPI-DyNav.msi](activeTAPI-DyNav.v2013\activeTAPI.COM-DyNav_v2013_Setup.msi) file from the `CODE` section
+You can download the `activeTAPI-DyNav.msi` file from the `CODE` section
 
 **Note:** Windows-TAPI itself is another bridge between your Windows Machine and the telephony hardware. To make Windows-TAPI work you must have a Windows-TAPI (CTI) driver installed for the telephony hardware you are planning to use. Please refer to your CTI hardware vendor for more information regarding that.
 
