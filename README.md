@@ -2,7 +2,12 @@
 
 Welcome to activeTAPI on GitHub. 
 
-In our `[WIKI]` you will find the latest tips and information and in the `CODE` section you will find the latest binaries and NAV Objects.
+Here, in the `CODE` section you will find the latest activeTAPI binaries & tools, as well as the NAV Objects. 
+
+* NAV-Objects
+* activeTAPI-Binaries
+
+In our `[WIKI]` section you will find the latest tips and information.
 
 ![readme01.png](readme01.png)
 
