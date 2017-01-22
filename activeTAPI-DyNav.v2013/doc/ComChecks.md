@@ -1,6 +1,6 @@
 # activeTAPI-DyNav COM-Checks
 
-ComChecks is a small application which checks the correct installation of activeTAPI. It checks, all required COM-Objects are registered and all .NET Components are installed and reachable. 
+*ComChecks* is a small application which checks the correct installation of activeTAPI. It checks, all required COM-Objects are registered and all .NET Components are installed and reachable. 
 
 If, for example, Registry entries are missing, COM-Objects cannot be instantiated properly. If a .NET component cannot be found in its expected location (e.g. GAC), such object creation will fail as well. 
 
@@ -9,7 +9,6 @@ ComChecks checks all the required settings
 1) from 32-Bit Client application
 2) from 64-Bit Client application
 
-(see also [NAV-Clients](NavClients.md))
 
 ## Installation
 
@@ -30,7 +29,7 @@ All results will be logged to
 
 In case of any failure, please uninstall and re-install activeTAPI, before you may send the  log files to [msc@schmidt-e-services.de](mailto:msc@schmidt-e-services.de) for diagnosis.
 
-![C:\Users\Public\Documents\Sync\Daten\_bitbucket\activeTAPI.v2013\Navision\src\SetupTools\doc\img\comchecks_results_log.png](img/comchecks_results_log.png)
+![img\comchecks_results_log.png](img/comchecks_results_log.png)
 
-## 64-Bit Architecture
+
 
