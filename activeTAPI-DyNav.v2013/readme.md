@@ -19,5 +19,6 @@ you can continue and install the [NAV-Objects](<https://github.com/SchmidteServi
 ## Tools
 
 The are some tools which address the issues with the [NAV 64-Bit Client](doc/x64Client.md). 
+The tools can be downloaded from [here](tools/).
 
 
