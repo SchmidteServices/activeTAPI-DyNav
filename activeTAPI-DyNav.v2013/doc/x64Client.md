@@ -13,7 +13,7 @@ If you are planning to use activeTAPI in a **64-Bit environment, please you need
 
 ### Run ComChecks x64
 
-First you should run [ComChecks.md](ComChecks.md) in the x64 Bit version to see it will fail. 
+First you should run *ComCheks* in the x64 Bit version to see it will fail. (see also [More information about ComChecks](ComChecks.md), [Download ComChecks](../../tools).
 
 ![C:\Users\Public\Documents\Sync\Daten\_bitbucket\activeTAPI.v2013\Navision\src\SetupTools\doc\img\comchecks_fail.png.png](img/comchecks_fail.png)
 
