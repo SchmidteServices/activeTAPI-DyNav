@@ -9,8 +9,6 @@ Here, in the `CODE` section you will find the latest activeTAPI binaries & tools
 
 In our `[WIKI]` section you will find the latest tips and information.
 
-![readme01.png](readme01.png)
-
 ## activeTAPI-Components
 
 The activeTAPI-Components are the **binary part and they must be installed on any machine that will connected with Windows-TAPI (CTI)**. The activeTAPI-Components are the bridge between Microsoft Dynamics NAV and Windows-TAPI.
