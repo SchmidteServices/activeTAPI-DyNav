@@ -12,7 +12,7 @@ If, for example, Registry entries are missing, COM-Objects cannot be instantiate
 
 ## Installation
 
-1. Download [ComChecks.v2017.zip](..\ComChecks.v2017.zip) from here 
+1. Download [ComChecks.v2017.zip](../ComChecks.v2017.zip) from here 
 2. and unzip it to any directory. 
 
 Execute the appropriate `ComCheck.v2017.exe`  (x86 or x64) from a Console window (cmd.exe), depending on the NAV-Client you have planned to use. If everything is ok, you will see a result like this:
@@ -37,7 +37,7 @@ you have to apply the x64 patch. Then, try again and verify you don't get these 
 
 If you encounter a message like this:
 
-![](img\actnotinstalled.png)
+![](img/actnotinstalled.png)
 
 which says: NLOG is not installed, you may check if you ran the Setup on this machine.
 
