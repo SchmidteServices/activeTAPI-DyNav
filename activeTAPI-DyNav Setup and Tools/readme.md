@@ -14,7 +14,7 @@ Once this is done, you should first **check Windows-TAPI** is setup correctly. T
 
 Then, you can continue and install the [NAV-Objects](https://github.com/SchmidteServices/activeTAPI-DyNav/tree/master/NavObjects) to connect telephony with NAV.
 
-**Note:** Windows-TAPI itself is another bridge between your Windows Machine and the telephony hardware. To make Windows-TAPI work you must have a Windows-TAPI (CTI) driver installed for the telephony hardware you are planning to use. Please refer to your CTI hardware vendor for more information regarding that.
+**Note:** Windows-TAPI itself is another bridge between your Windows Machine and the telephony hardware. To make Windows-TAPI work you must have a Windows-TAPI (CTI) driver installed for the telephony hardware. Please refer to your CTI hardware vendor for more information regarding that.
 
 ## Tools
 
