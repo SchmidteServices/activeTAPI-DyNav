@@ -18,6 +18,6 @@ Then, you can continue and install the [NAV-Objects](https://github.com/Schmidte
 
 ## Tools
 
-The are some tools which address the issues with the NAV 64-Bit Client.  [Continue reading...](doc/x64Client.md). 
+Address the issues with the NAV 64-Bit Client.  [Continue reading...](doc/x64Client.md). 
 
 
